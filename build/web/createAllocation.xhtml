@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+   
+    <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                color: black;
+                text-align: center;
+            }
+            #ClassTable {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                padding-bottom: 12px;
+            }
+
+            #ClassTable td, #ClassTable th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #ClassTable td:hover {background-color: #ddd;}
+
+            #ClassTable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1668db;
+                color: white;
+            }        
+        </style>
+    
+    <title>Creates a New Allocation</title>
+</h:head>
+<h:body>
+    <h1>Creates a New Allocation</h1>
+    <h:form>
+        <table id="ClassTable">
+               
+            <tr>
+                <td>
+                    <h:outputLabel value="Property Manager : "/>
+                </td>
+                <td>                                <!--Store choose value in allocationManagerName(created in PropertyController)-->
+                    <h:selectOneMenu value="#{myPropertyController.allocationManagerName}" converter="#{managerConverter}">
+                        <f:selectItems value="#{myPropertyController.propertyManagerList}" var="mnger" itemValue="#{mnger}" itemLabel="#{mnger.pmFirstName} #{mnger.pmLastName}" ></f:selectItems>
+                    </h:selectOneMenu>
+                </td> 
+            </tr>
+            
+            <tr>
+                <td>
+                    <h:outputLabel value="Sale Property : "/>
+                </td>
+                <td>                           <!--Store choose value in allocationSaleProperty(created in PropertyController)-->
+                    <h:selectOneMenu value="#{myPropertyController.allocationSaleProperty}" converter="#{managerConverter}">
+                        <f:selectItems value="#{myPropertyController.propertySaleList}" var="spp" itemValue="#{spp}" itemLabel="#{spp.streetNumber} #{spp.streetName} #{spp.city}" ></f:selectItems>
+                    </h:selectOneMenu>
+                </td>
+                <td>                                                  <!--When press button, call the mothed 'doAllocateSaleProperty' and pass the value-->
+                    <h:commandButton value="Allocate" action="#{myPropertyController.doAllocateSaleProperty(myPropertyController.saleproperty, myPropertyController.allocationSaleProperty)}"/>         <!-- Not Finished Yet -->
+                </td>
+            </tr> 
+            
+            <tr>
+                <td>
+                    <h:outputLabel value="Rent Property : "/>
+                </td>
+                <td>                            <!--Store choose value in allocationRentProperty(created in PropertyController)-->
+                    <h:selectOneMenu value="#{myPropertyController.allocationRentProperty}" converter="#{managerConverter}">
+                        <f:selectItems value="#{myPropertyController.propertyRentList}" var="rpp" itemValue="#{rpp}" itemLabel="#{rpp.streetNumber} #{rpp.streetName} #{rpp.city}" ></f:selectItems>
+                    </h:selectOneMenu>
+                </td>
+                <td>                                                    <!--When press button, call the mothed 'doAllocateRentProperty' and pass the value-->
+                    <h:commandButton value="Allocate" action="#{myPropertyController.doAllocateRentProperty(myPropertyController.allocationManagerName, myPropertyController.allocationRentProperty)}"/>         <!-- Not Finished Yet -->
+                </td>
+            </tr> 
+             
+        </table>
+        
+    </h:form>
+    <hr/>
+    <h:link value="The list of allocations" outcome="listSaleProperties.xhtml" />     
+    |
+    <h:link value="Main Page" outcome="index.xhtml"/>  
+
+</h:body>
+</html>

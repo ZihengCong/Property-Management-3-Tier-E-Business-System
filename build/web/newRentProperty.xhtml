@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+    <h:head>
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                color: black;
+                text-align: center;
+            }
+            #ClassTable {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                padding-bottom: 12px;
+            }
+
+            #ClassTable td, #ClassTable th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #ClassTable td:hover {background-color: #ddd;}
+
+            #ClassTable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1668db;
+                color: white;
+            }        
+        </style>
+        <title>Create a Rent Property</title>
+    </h:head>
+    <h:body>
+        <h1>Provide the Following Information for a Rent Property</h1>
+
+        <h:form>
+            <table id="ClassTable">
+
+                <ago:newItem property="#{myPropertyController.rentproperty}"/>
+                <tr>                    
+                    <td>
+                        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue" globalOnly="true"/>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <h:outputLabel value="Weekly Rent : "/>
+                    </td>
+                    <td>
+                        <h:inputText id ="weeklyRent" value="#{myPropertyController.rentproperty.weeklyRent}" required="true"/>
+                    </td>
+                    <td>
+                        <h:message id="msgweeklyRent" for="weeklyRent" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:outputLabel value="Furnished : "/>
+                    </td>
+                    <td>
+                        <h:selectBooleanCheckbox value="#{myPropertyController.rentproperty.furnished}" required="true"/>
+                    </td>
+                </tr>
+
+            </table>
+
+            <h:commandButton value="CREATE" action="#{myPropertyController.doCreateRentProperty()}"/>
+
+        </h:form>
+        <hr/>
+        <h:link value="The list of rent properties" outcome="listRentProperties.xhtml" />
+        |
+        <h:link value="Main Page" outcome="index.xhtml"/>                      
+
+    </h:body>
+</html>

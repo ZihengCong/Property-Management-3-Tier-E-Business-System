@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <composite:interface>
+        <composite:attribute name="property" required="true"/>
+        <composite:attribute name="style" required="false"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <tr>
+            <td>
+                <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange"
+                            infoStyle="color: blue" globalOnly="true"/>
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+
+            <td>Property Type:</td>
+            <td>
+                <h:inputText id="propertyType" value="#{cc.attrs.property.propertyType}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgpropertyType" for="propertyType" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+
+            <td>No. of Bedrooms:</td>
+            <td>
+                <h:inputText id="nbOfBedrooms" value="#{cc.attrs.property.nbOfBedrooms}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgnbOfBedrooms" for="nbOfBedrooms" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>No. of Bathrooms:</td>
+            <td>
+                <h:inputText id="nbOfBathrooms" value="#{cc.attrs.property.nbOfBathrooms}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgnbOfBathrooms" for="nbOfBathrooms" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Property Description:</td>
+            <td>
+                <h:inputTextarea id="description" value="#{cc.attrs.property.description}" cols="25" rows="6"/>
+            </td>
+            <td>
+                <h:message id="msgdescription" for="description" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Street Number:</td>
+            <td>
+                <h:inputText id="streetNumber" value="#{cc.attrs.property.streetNumber}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgstreetNumber" for="streetNumber" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Street Name:</td>
+            <td>
+                <h:inputText id="streetName" value="#{cc.attrs.property.streetName}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgstreetName" for="streetName" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>City:</td>
+            <td>
+                <h:inputText id="city" value="#{cc.attrs.property.city}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgcity" for="city" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Postcode:</td>
+            <td>
+                <h:inputText id="postcode" value="#{cc.attrs.property.postcode}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgpostcode" for="postcode" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Country:</td>
+            <td>
+                <h:inputText id="country" value="#{cc.attrs.property.country}" required="true"/>
+            </td>
+            <td>
+                <h:message id="msgcountry" for="country" />
+            </td>
+        </tr>
+    </composite:implementation>
+</html>

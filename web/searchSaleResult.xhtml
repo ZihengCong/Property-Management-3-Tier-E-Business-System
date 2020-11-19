@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:agoo="http://java.sun.com/jsf/composite/apress"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    
+    <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                color: black;
+                text-align: center;
+            }
+            #ClassTable {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                padding-bottom: 12px;
+            }
+
+            #ClassTable td, #ClassTable th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #ClassTable td:hover {background-color: #ddd;}
+
+            #ClassTable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1668db;
+                color: white;
+            }        
+        </style>
+    
+    
+    
+    <title>The Found Sale Properties</title>
+</h:head>
+<h:body>
+    <h1>The Found Sale Properties of ID:</h1> 
+
+    
+    <h:dataTable value="#{myPropertyController.searchSaleList}" var="ppt" id="ClassTable">
+
+        <h:column>
+            <h:outputText value="Property Type:"/><br/>
+            <h:outputText value="No. of Bedrooms:"/><br/>
+            <h:outputText value="No. of Bathrooms:"/><br/>
+            <h:outputText value="Address:"/><br/>
+            <h:outputText value="Sale price:"/><br/>
+            <h:outputText value="Property Description:"/><br/>
+            
+        </h:column>
+
+        <h:column>
+            <h:outputText value="#{ppt.propertyType}"/><br/>
+            <h:outputText value="#{ppt.nbOfBedrooms}"/><br/>
+            <h:outputText value="#{ppt.nbOfBathrooms}"/><br/>
+            <h:outputText value="#{ppt.streetNumber} #{ppt.streetName} #{ppt.city}"/><br/>
+            <h:outputText value="#{ppt.salePrice}"/><br/>
+            <h:outputText value="#{ppt.description}"/>
+        </h:column>
+        
+    
+    
+    </h:dataTable>
+    
+
+    <hr/>
+
+    <h:link value="The list of sale properties" outcome="listSaleProperties.xhtml" />
+    |
+    <h:link value="Main Page" outcome="index.xhtml"/>                      
+
+
+    
+</h:body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+    <h:head>
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                color: black;
+                text-align: center;
+            }
+            #ClassTable {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                padding-bottom: 12px;
+            }
+
+            #ClassTable td, #ClassTable th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #ClassTable td:hover {background-color: #ddd;}
+
+            #ClassTable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1668db;
+                color: white;
+            }        
+        </style>
+        <title>Search a Property Manager</title>
+    </h:head>
+    <h:body>
+        <h1>Search a Property Manager</h1>
+        <h:form>
+            <table id="ClassTable">
+                    <td>
+                        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue" globalOnly="true"/>
+                    </td>
+                <tr>
+
+                    <td>
+                        <h:outputLabel value="Manager First Name: "/>
+                    </td>
+                    <td>
+                        <h:inputText id ="searchFirstName" value="#{myPropertyController.searchFirstName}" required="true"/>    
+                    </td>
+                    <td>
+                        <h:message id="msgsearchFirstName" for="searchFirstName" warnStyle="color: orange" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:outputLabel value="Manager Last Name: "/>
+                    </td>
+                    <td>
+                        <h:inputText  id ="searchLastName" value="#{myPropertyController.searchLastName}" required="true"/>   
+                    </td>
+                    <td>
+                        <h:message id="msgsearchLastName" for="searchLastName" warnStyle="color: orange"/>
+                    </td>
+                </tr>
+
+            </table>
+
+            <h:commandButton value="SEARCH" action="#{myPropertyController.doSearchManagerProperty()}"/>    
+
+        </h:form>
+        <hr/>
+        <h:form>
+            <h:link value="The list of property managers" outcome="listPropertyManager.xhtml" />
+            |
+            <h:link value="Main Page" outcome="index.xhtml"/>                  
+
+    </h:body>
+</html>

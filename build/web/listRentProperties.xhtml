@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                color: black;
+                text-align: center;
+            }
+            #ClassTable {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                padding-bottom: 12px;
+            }
+
+            #ClassTable td, #ClassTable th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #ClassTable td:hover {background-color: #ddd;}
+
+            #ClassTable th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1668db;
+                color: white;
+            }        
+        </style>
+    <title>The Current Rent Properties</title>
+</h:head>
+<h:body>
+    <h1>The Current Rent Properties</h1>
+    
+    <h:dataTable value="#{myPropertyController.propertyRentList}" var="ppt" id="ClassTable">
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{ppt.id}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Type"/>
+            </f:facet>
+            <h:outputText value="#{ppt.propertyType}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Location"/>
+            </f:facet>
+            <h:outputText value="#{ppt.streetNumber} #{ppt.streetName} #{ppt.city}"/>
+        </h:column>
+        
+        <h:column>
+            <h:form>    
+                <h:commandLink value="View Details" action="#{myPropertyController.doViewRentDetails(ppt.id)}" />  
+            </h:form>
+        </h:column>
+
+    </h:dataTable>
+    <hr/>
+    <h:form>
+        <h:link value="Create a new rent property" outcome="newRentProperty.xhtml" />
+        |
+        <h:link value="Main Page" outcome="index.xhtml"/>                      
+    </h:form>
+</h:body>
+</html>

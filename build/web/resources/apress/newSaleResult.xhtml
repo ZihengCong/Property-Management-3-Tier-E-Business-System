@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="saleproperty" required="true"/>
+    <composite:attribute name="style" required="false"/>
+</composite:interface>
+
+<composite:implementation>
+    <tr style="#{cc.attrs.style}">
+        
+        <td>Property Type:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.propertyType}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        
+        <td>No. of Bedrooms:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.nbOfBedrooms}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>No. of Bathrooms:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.nbOfBathrooms}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>Address:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.streetNumber} #{cc.attrs.saleproperty.streetName} #{cc.attrs.saleproperty.city} #{cc.attrs.saleproperty.country}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>Sale price:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.nbOfBathrooms}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>Property Description:</td>
+        <td>
+            <h:outputText value="#{cc.attrs.saleproperty.description}"/>
+        </td>
+    </tr>
+    
+</composite:implementation>
+</html>
